@@ -130,6 +130,11 @@ variable "pcf_virtual_network_address_space" {
   default = ["10.0.0.0/16"]
 }
 
+variable "pcf_virtual_network_dns_servers" {
+  type    = "list"
+  default = []
+}
+
 variable "pcf_infrastructure_subnet" {
   type    = "string"
   default = "10.0.8.0/26"
