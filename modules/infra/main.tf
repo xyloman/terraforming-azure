@@ -19,6 +19,11 @@ variable "pcf_virtual_network_address_space" {
   default = []
 }
 
+variable "pcf_virtual_network_dns_servers" {
+  type    = "list"
+  default = []
+}
+
 variable "pcf_infrastructure_subnet" {
   default = ""
 }
@@ -232,6 +237,7 @@ resource "azurerm_virtual_network" "pcf_virtual_network" {
   resource_group_name = "${azurerm_resource_group.pcf_resource_group.name}"
   address_space       = "${var.pcf_virtual_network_address_space}"
   location            = "${var.location}"
+  dns_servers         = "${var.pcf_virtual_network_dns_servers}"
 }
 
 resource "azurerm_subnet" "infrastructure_subnet" {
